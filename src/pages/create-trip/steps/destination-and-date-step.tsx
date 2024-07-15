@@ -8,20 +8,20 @@ import "react-day-picker/dist/style.css";
 
 interface DestinationAndDateStepProps {
   isGuestsInputOpen: boolean;
-  eventStartandEndDates: DateRange | undefined;
+  eventStartAndEndDates: DateRange | undefined;
   closeGuestsInput: () => void;
   openGuestsInput: () => void;
   setDestination: (destination: string) => void;
-  setEventStartandEndDates: (dates: DateRange | undefined) => void;
+  setEventStartAndEndDates: (dates: DateRange | undefined) => void;
 }
 
 export function DestinationAndDateStep({
   isGuestsInputOpen,
-  eventStartandEndDates,
+  eventStartAndEndDates,
   closeGuestsInput,
   openGuestsInput,
   setDestination,
-  setEventStartandEndDates,
+  setEventStartAndEndDates,
 }: DestinationAndDateStepProps) {
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
 
@@ -34,12 +34,12 @@ export function DestinationAndDateStep({
   }
 
   const displayedDate =
-    eventStartandEndDates &&
-    eventStartandEndDates.from &&
-    eventStartandEndDates.to
-      ? format(eventStartandEndDates.from, "d' de 'LLL")
+    eventStartAndEndDates &&
+    eventStartAndEndDates.from &&
+    eventStartAndEndDates.to
+      ? format(eventStartAndEndDates.from, "d' de 'LLL")
           .concat(" até ")
-          .concat(format(eventStartandEndDates.to, "d' de 'LLL"))
+          .concat(format(eventStartAndEndDates.to, "d' de 'LLL"))
       : null;
 
   return (
@@ -79,8 +79,8 @@ export function DestinationAndDateStep({
 
             <DayPicker
               mode="range"
-              selected={eventStartandEndDates}
-              onSelect={setEventStartandEndDates}
+              selected={eventStartAndEndDates}
+              onSelect={setEventStartAndEndDates}
             />
           </div>
         </div>
